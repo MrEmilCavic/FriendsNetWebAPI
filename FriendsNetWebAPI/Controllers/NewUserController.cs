@@ -52,7 +52,7 @@ namespace FriendsNetWebAPI.Controllers
             {
                 userID = user.userID,
                 FirstName = "Bewildered",
-                LastName = "Kanelsnegle"
+                LastName = "Kanelsnegl"
             };
 
             _context.Profiles.Add(newProfile);

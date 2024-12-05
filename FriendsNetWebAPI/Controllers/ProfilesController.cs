@@ -28,10 +28,10 @@ namespace FriendsNetWebAPI.Controllers
         }
 
         // GET: api/Profiles/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Profiles>> GetProfiles(int id)
+        [HttpGet("{userID}")]
+        public async Task<ActionResult<Profiles>> GetProfiles(int userID)
         {
-            var profiles = await _context.Profiles.FindAsync(id);
+            var profiles = await _context.Profiles.FindAsync(userID);
 
             if (profiles == null)
             {
@@ -43,10 +43,10 @@ namespace FriendsNetWebAPI.Controllers
 
         // PUT: api/Profiles/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutProfiles(int id, Profiles profiles)
+        [HttpPut("{userID}")]
+        public async Task<IActionResult> PutProfiles(int userID, Profiles profiles)
         {
-            if (id != profiles.userID)
+            if (userID != profiles.userID)
             {
                 return BadRequest();
             }
@@ -59,7 +59,7 @@ namespace FriendsNetWebAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ProfilesExists(id))
+                if (!ProfilesExists(userID))
                 {
                     return NotFound();
                 }
@@ -80,14 +80,14 @@ namespace FriendsNetWebAPI.Controllers
             _context.Profiles.Add(profiles);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetProfiles", new { id = profiles.userID }, profiles);
+            return CreatedAtAction("GetProfiles", new { userID = profiles.userID }, profiles);
         }
 
         // DELETE: api/Profiles/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteProfiles(int id)
+        [HttpDelete("{userID}")]
+        public async Task<IActionResult> DeleteProfiles(int userID)
         {
-            var profiles = await _context.Profiles.FindAsync(id);
+            var profiles = await _context.Profiles.FindAsync(userID);
             if (profiles == null)
             {
                 return NotFound();
@@ -99,9 +99,9 @@ namespace FriendsNetWebAPI.Controllers
             return NoContent();
         }
 
-        private bool ProfilesExists(int id)
+        private bool ProfilesExists(int userID)
         {
-            return _context.Profiles.Any(e => e.userID == id);
+            return _context.Profiles.Any(e => e.userID == userID);
         }
     }
 }
