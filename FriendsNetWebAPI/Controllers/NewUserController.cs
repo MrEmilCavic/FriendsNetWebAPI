@@ -58,6 +58,13 @@ namespace FriendsNetWebAPI.Controllers
             _context.Profiles.Add(newProfile);
             await _context.SaveChangesAsync();
 
+            var newInterestProfile = new InterestProfiles
+            {
+                UserID = user.userID
+            };
+
+            _context.InterestProfiles.Add(newInterestProfile);
+            await _context.SaveChangesAsync();
 
             return Ok(new { Message = "Hooray! Welcome to the community!" });
         }

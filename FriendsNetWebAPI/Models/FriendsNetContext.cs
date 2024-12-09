@@ -14,5 +14,6 @@ namespace FriendsNetWebAPI.Models
         public DbSet<FriendsNetWebAPI.Models.EventDiscussion> EventDiscussion { get; set; } = default!;
         public DbSet<FriendsNetWebAPI.Models.Interests> Interests { get; set; } = default!;
         public DbSet<FriendsNetWebAPI.Models.Profiles> Profiles { get; set; } = default!;
+        public DbSet<FriendsNetWebAPI.Models.InterestProfiles> InterestProfiles { get; set; } = default!;
     }
 }

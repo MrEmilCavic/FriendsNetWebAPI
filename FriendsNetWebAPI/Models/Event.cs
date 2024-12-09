@@ -10,6 +10,7 @@ namespace FriendsNetWebAPI.Models
         public DateTime eventTime { get; set; }
         public string Place { get; set; }
         public int createdBy { get; set; }
+        public DateTime createdAt { get; set; }
         public string? Description { get; set; }
         public string? banner { get; set; }
         public string? invited { get; set; }
