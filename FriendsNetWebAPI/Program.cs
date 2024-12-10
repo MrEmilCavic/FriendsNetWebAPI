@@ -17,6 +17,7 @@ var dbConnectionString = $"Data Source={builder.Configuration["DB_DATA_SOURCE"]}
 
 // Add services to the container.
 builder.Services.AddDbContext<FriendsNetContext>(options => options.UseSqlServer(dbConnectionString));
+builder.Services.AddScoped<TokenService>();
 
 builder.Services.AddAuthorization();
 

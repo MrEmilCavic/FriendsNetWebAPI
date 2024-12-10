@@ -4,7 +4,7 @@ A simple API/Back-End to connect the React based Front-End with the MS SQL datab
 ## Features so far
 - Generic Models and Controllers that will be used for future features (Events/Interests) 
 - Sign Up/Sign In, incl. password hashing with salts and issuing token
-- Creates an empty profile & interests list after sign up
+- Added refresh token feature so I can automatically refresh a login when needed or log the user out when token is expired
 
 ## Currently in progress
 - Edit profile & interests
